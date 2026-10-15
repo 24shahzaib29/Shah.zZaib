@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shahzaib — Front-End Developer | Portfolio</title>
+  <meta name="description" content="Personal portfolio of Shahzaib, a Front-End Developer specializing in futuristic, high-performance, and responsive web experiences." />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Shahzaib — Front-End Developer | Portfolio" />
+  <meta property="og:description" content="Explore futuristic, responsive web interfaces, interactive projects, and modern front-end craftsmanship by Shahzaib." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./avatar.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Pure Vanilla CSS (No External Frameworks) -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ====================================================================
+       LOADING SCREEN (Matches Top Left in Image)
+       ==================================================================== -->
+  <div id="loading-screen" role="status" aria-live="polite">
+    <div class="loader-content">
+      <h1 class="loader-brand">Shahzaib</h1>
+      <div class="loader-track">
+        <div id="loading-progress" class="loader-bar"></div>
+      </div>
+      <div id="loading-message" class="loader-message">Loading...</div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       ANIMATED CANVAS BACKGROUND (Cosmic Green Smoke & Energy Matrix)
+       ==================================================================== -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ====================================================================
+       TOP NAVIGATION BAR
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="Shahzaib Home">
+        Shahza<span class="green-accent">i</span>b
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Interactive Controls (Theme Pill Toggle & Sound) -->
+      <div class="header-actions">
+        <!-- Interactive Theme Switcher Toggle Pill -->
+        <button id="theme-toggle" class="theme-pill-toggle" aria-label="Toggle Night/Morning Mode" title="Switch Theme">
+          <span class="pill-icon sun-icon">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </span>
+          <span class="pill-thumb"></span>
+          <span class="pill-icon moon-icon">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Button Sound Toggle -->
+        <button id="sound-toggle" class="icon-btn" aria-pressed="true" aria-label="Mute Button Sound Effects" title="Toggle Sound">
+          <svg id="sound-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke-width="2" stroke-linecap="round"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="hamburger-btn" class="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="mobile-nav-drawer" role="navigation" aria-label="Mobile Navigation">
+      <a href="#home" class="mobile-nav-link">Home <span>&rarr;</span></a>
+      <a href="#about" class="mobile-nav-link">About <span>&rarr;</span></a>
+      <a href="#skills" class="mobile-nav-link">Skills <span>&rarr;</span></a>
+      <a href="#projects" class="mobile-nav-link">Projects <span>&rarr;</span></a>
+      <a href="#contact" class="mobile-nav-link">Contact <span>&rarr;</span></a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ====================================================================
+         HERO SECTION (Matches Center in Image)
+         ==================================================================== -->
+    <section id="home" class="section hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column: Typography & CTAs -->
+          <div class="hero-content reveal-on-scroll">
+            <span class="hero-greeting">Hello, I'm</span>
+            <h1 class="hero-title">Shahzaib</h1>
+
+            <div class="hero-role-wrapper">
+              <span id="typewriter-text" class="hero-role">Front-End Developer</span>
+              <span class="typewriter-cursor" aria-hidden="true"></span>
+            </div>
+
+            <p class="hero-bio">
+              I create modern, responsive and user-friendly web experiences using HTML, CSS and JavaScript.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                View Projects
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                Contact Me
+              </a>
+            </div>
+
+            <!-- Scroll Down Indicator Arrow -->
+            <a href="#about" class="scroll-down-link" aria-label="Scroll down to About section">
+              <span class="circle-arrow">&darr;</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Neon Glow Framed Portrait -->
+          <div class="hero-portrait-wrapper reveal-on-scroll">
+            <div class="portrait-glow-halo"></div>
+            <div class="portrait-frame">
+              <img
+                src="WhatsApp Image 2026-10-14 at 11.21.02 PM.jpeg"
+                alt="Portrait of Shahzaib - Front-End Developer"
+                class="portrait-img"
+                id="developer-portrait"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ABOUT ME SECTION (Matches Image)
+         ==================================================================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="glass-panel about-card reveal-on-scroll">
+          <h2 class="section-title-green">About Me</h2>
+
+          <div class="about-grid">
+            <!-- Left: Bio Text & 3 Key Metrics -->
+            <div class="about-left">
+              <p class="about-text">
+                Hi, I'm Shahzaib, a passionate front-end developer from Pakistan. I love turning ideas into beautiful and functional websites. I'm always learning and exploring new technologies to improve my skills and build something meaningful.
+              </p>
+
+              <div class="about-stats-row">
+                <div class="stat-item">
+                  <span class="stat-number">1+</span>
+                  <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Dedication</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">&infin;</span>
+                  <span class="stat-label">Learning</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Metadata Info Card -->
+            <div class="about-meta-card">
+              <!-- Location -->
+              <div class="meta-row">
+                <div class="meta-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-title">Location</span>
+                  <span class="meta-val">Pakistan</span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="meta-row">
+                <div class="meta-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-title">Email</span>
+                  <span class="meta-val" data-config="email-text">shahzaib107027@gmail.com</span>
+                </div>
+              </div>
+
+              <!-- Experience -->
+              <div class="meta-row">
+                <div class="meta-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                  </svg>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-title">Experience</span>
+                  <span class="meta-val">Fresher</span>
+                </div>
+              </div>
+
+              <!-- Freelance -->
+              <div class="meta-row">
+                <div class="meta-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-title">Freelance</span>
+                  <span class="meta-val">Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MY SKILLS SECTION (Matches Image)
+         ==================================================================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title-green reveal-on-scroll">My Skills</h2>
+
+        <div class="skills-grid reveal-on-scroll">
+          <!-- Skill 1: HTML -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-html">
+              <span>5</span>
+            </div>
+            <span class="skill-label">HTML</span>
+          </div>
+
+          <!-- Skill 2: CSS -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-css">
+              <span>3</span>
+            </div>
+            <span class="skill-label">CSS</span>
+          </div>
+
+          <!-- Skill 3: JavaScript -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-js">
+              <span>JS</span>
+            </div>
+            <span class="skill-label">JavaScript</span>
+          </div>
+
+          <!-- Skill 4: Responsive Design -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-green">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <span class="skill-label">Responsive Design</span>
+          </div>
+
+          <!-- Skill 5: Problem Solving -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-green">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <span class="skill-label">Problem Solving</span>
+          </div>
+
+          <!-- Skill 6: Creativity -->
+          <div class="glass-panel skill-card">
+            <div class="badge-icon badge-green">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="9" y1="18" x2="15" y2="18"/>
+                <line x1="10" y1="22" x2="14" y2="22"/>
+                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+              </svg>
+            </div>
+            <span class="skill-label">Creativity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MY PROJECTS SECTION (Matches Image)
+         ==================================================================== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="projects-header-row reveal-on-scroll">
+          <div>
+            <h2 class="section-title-green">My Projects</h2>
+            <p class="section-subtext">Here are some of my recent works.</p>
+          </div>
+          <button id="add-project-btn" class="btn btn-outline btn-sm">
+            + Add Project
+          </button>
+        </div>
+
+        <div class="projects-grid reveal-on-scroll">
+          <!-- Project 1: Portfolio Website -->
+          <article class="glass-panel project-card">
+            <div class="project-thumb thumb-portfolio">
+              <div class="thumb-mockup">
+                <div class="mockup-header-bar">
+                  <span class="dot dot-green"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="mockup-content-ui">
+                  <span class="mockup-hero-text">Shahzaib</span>
+                  <div class="mockup-lines"></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-name">Portfolio Website</h3>
+              <p class="project-desc">A personal portfolio website with modern UI and smooth animations.</p>
+              <a href="#home" class="btn btn-outline btn-project">View Project</a>
+            </div>
+          </article>
+
+          <!-- Project 2: Pizza Club -->
+          <article class="glass-panel project-card">
+            <div class="project-thumb thumb-pizza">
+              <div class="pizza-banner">
+                <div class="pizza-text">
+                  <span>Fresh Pizza.</span>
+                  <strong>Big Flavor.</strong>
+                </div>
+                <div class="pizza-icon-graphic"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-name">Pizza Club</h3>
+              <p class="project-desc">A responsive pizza website with beautiful UI and animations.</p>
+              <a href="#contact" class="btn btn-outline btn-project">View Project</a>
+            </div>
+          </article>
+
+          <!-- Project 3: E-Commerce UI -->
+          <article class="glass-panel project-card">
+            <div class="project-thumb thumb-ecommerce">
+              <div class="ecom-banner">
+                <div class="ecom-text">
+                  <small>Shop Smarter</small>
+                  <strong>Live Better</strong>
+                </div>
+                <div class="ecom-phone-graphic"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-name">E-Commerce UI</h3>
+              <p class="project-desc">A clean and responsive e-commerce interface design.</p>
+              <a href="#contact" class="btn btn-outline btn-project">View Project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CONTACT ME SECTION (Matches Bottom Left in Image)
+         ==================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="reveal-on-scroll" style="margin-bottom: 2rem;">
+          <h2 class="section-title-green">Contact Me</h2>
+          <p class="section-subtext">Get in touch with me. I'm always open to new opportunities and interesting projects.</p>
+        </div>
+
+        <!-- 4 Action Cards in a Row (Phone, WhatsApp, LinkedIn, Email) -->
+        <div class="contact-cards-grid reveal-on-scroll">
+          <!-- 1. Phone Card -->
+          <div class="glass-panel action-contact-card">
+            <div class="action-icon action-icon-phone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <span class="action-label">Phone</span>
+            <span class="action-value" data-config="phone-text">+92 349 6146037</span>
+            <a href="tel:+923496146037" data-config="phone-link" class="btn btn-outline btn-card-action">Call</a>
+          </div>
+
+          <!-- 2. WhatsApp Card -->
+          <div class="glass-panel action-contact-card">
+            <div class="action-icon action-icon-whatsapp">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </div>
+            <span class="action-label">WhatsApp</span>
+            <span class="action-value" data-config="whatsapp-text">+92 349 6146037</span>
+            <a href="https://wa.me/923496146037" data-config="whatsapp-link" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-card-action">Message</a>
+          </div>
+
+          <!-- 3. LinkedIn Card -->
+          <div class="glass-panel action-contact-card">
+            <div class="action-icon action-icon-linkedin">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <span class="action-label">LinkedIn</span>
+            <span class="action-value">Visit Profile</span>
+            <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" data-config="linkedin-link" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-card-action">Open</a>
+          </div>
+
+          <!-- 4. Email Card -->
+          <div class="glass-panel action-contact-card">
+            <div class="action-icon action-icon-email">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <span class="action-label">Email</span>
+            <span class="action-value" data-config="email-text">shahzaib107027@gmail.com</span>
+            <a href="mailto:shahzaib107027@gmail.com" data-config="email-link" class="btn btn-outline btn-card-action">Send Mail</a>
+          </div>
+        </div>
+
+        <!-- Contact Form + Cyber Quote Split -->
+        <div class="contact-split-row reveal-on-scroll">
+          <!-- Left: Send a Message Form -->
+          <div class="glass-panel form-box">
+            <h3 class="form-title">Send a Message</h3>
+
+            <form id="whatsapp-contact-form" class="direct-form" novalidate>
+              <!-- Name -->
+              <div class="input-block">
+                <label for="contact-name" class="input-label">Name</label>
+                <input type="text" id="contact-name" name="name" class="styled-input" placeholder="Your name" required />
+                <span id="error-name" class="input-err-msg"></span>
+              </div>
+
+              <!-- Email -->
+              <div class="input-block">
+                <label for="contact-email" class="input-label">Email</label>
+                <input type="email" id="contact-email" name="email" class="styled-input" placeholder="Your email" required />
+                <span id="error-email" class="input-err-msg"></span>
+              </div>
+
+              <!-- Full Name (Hidden/Integrated for WhatsApp format specification) -->
+              <input type="hidden" id="contact-fullname" name="fullname" value="" />
+
+              <!-- Subject -->
+              <div class="input-block">
+                <label for="contact-subject" class="input-label">Subject</label>
+                <input type="text" id="contact-subject" name="subject" class="styled-input" placeholder="Subject" />
+              </div>
+
+              <!-- Message -->
+              <div class="input-block">
+                <label for="contact-message" class="input-label">Message</label>
+                <textarea id="contact-message" name="message" class="styled-textarea" rows="4" placeholder="Your message..." required></textarea>
+                <span id="error-message" class="input-err-msg"></span>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" id="whatsapp-submit-btn" class="btn btn-primary btn-submit-full">
+                Send Message
+              </button>
+            </form>
+
+            <div id="form-status-banner" role="status" aria-live="polite"></div>
+          </div>
+
+          <!-- Right: Futuristic Energy Quote Card -->
+          <div class="glass-panel quote-box">
+            <p class="quote-text">
+              &ldquo; Let's build<br /><span class="quote-accent">something amazing</span><br />together. &rdquo;
+            </p>
+
+            <!-- Cyber Neon Wave Graphic in Card -->
+            <div class="wave-graphic-container">
+              <svg viewBox="0 0 400 240" class="neon-wave-svg" fill="none">
+                <path d="M 0 160 Q 100 40 200 140 T 400 120" stroke="#00ff88" stroke-width="2.5" opacity="0.85"/>
+                <path d="M 0 180 Q 120 70 230 160 T 400 130" stroke="#0df28a" stroke-width="1.5" opacity="0.6"/>
+                <path d="M 0 140 Q 80 30 180 120 T 400 100" stroke="#10b981" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.45"/>
+                <path d="M 0 200 Q 140 100 260 180 T 400 150" stroke="#00ff88" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         INTERACTIVE SIDE WIDGETS (Theme Modes & Button Click Sound Demo)
+         ==================================================================== -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="widgets-grid reveal-on-scroll">
+          <!-- Theme Preview Cards -->
+          <div class="glass-panel widget-card">
+            <h4 class="widget-title">Theme System</h4>
+            <div class="theme-choice-row">
+              <button type="button" class="theme-mini-card" id="theme-btn-night" title="Activate Night Mode">
+                <div class="mini-card-preview night-preview">
+                  <div class="mini-moon"></div>
+                </div>
+                <span>Night Mode</span>
+              </button>
+
+              <button type="button" class="theme-mini-card" id="theme-btn-morning" title="Activate Morning Mode">
+                <div class="mini-card-preview morning-preview">
+                  <div class="mini-sun"></div>
+                  <div class="mini-hill"></div>
+                </div>
+                <span>Morning Mode</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Button Click Sound Card with Audio Waveform -->
+          <div class="glass-panel widget-card">
+            <h4 class="widget-title">
+              <span class="music-note-icon">🎵</span> Button Click Sound
+            </h4>
+            <div class="audio-wave-box" id="audio-visualizer-box">
+              <div class="sound-wave-bars">
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+              </div>
+            </div>
+            <button type="button" id="test-sound-btn" class="btn btn-outline btn-sm" style="width: 100%; margin-top: 0.75rem;">
+              Test Audio Feedback
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       FOOTER (Matches Bottom Bar in Image)
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content-row">
+      <!-- Copyright -->
+      <div class="footer-copy">
+        &copy; <span id="current-year">2026</span> Shahzaib. All rights reserved.
+      </div>
+
+      <!-- Quick Social Circular Icon Links -->
+      <div class="footer-social-icons">
+        <a href="tel:+923496146037" data-config="phone-link" class="footer-icon-circle" aria-label="Phone Dialer">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </a>
+
+        <a href="https://wa.me/923496146037" data-config="whatsapp-link" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="WhatsApp Chat">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/shahzaib-jamshaid-401605405?utm_source=share_via&utm_content=profile&utm_medium=member_android" data-config="linkedin-link" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="LinkedIn Profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+
+        <a href="mailto:shahzaib107027@gmail.com" data-config="email-link" class="footer-icon-circle" aria-label="Send Email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       DEVELOPER PROJECT MODAL (+ Add Project)
+       ==================================================================== -->
+  <div id="add-project-modal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading" style="display: none;">
+    <div class="glass-panel modal-box">
+      <button id="close-modal-btn" class="modal-close" aria-label="Close dialog">&times;</button>
+      <h3 id="modal-heading" class="modal-title">How to Add or Edit Projects</h3>
+      <p class="modal-desc">
+        All projects are cleanly rendered in <code>index.html</code> for zero-dependency speed and reliability.
+      </p>
+      <div class="code-instructions">
+        <p>To add a new project, copy and paste this block into the <code>projects-grid</code> in <code>index.html</code>:</p>
+        <pre><code>&lt;article class="glass-panel project-card"&gt;
+  &lt;div class="project-info"&gt;
+    &lt;h3 class="project-name"&gt;Your Project Name&lt;/h3&gt;
+    &lt;p class="project-desc"&gt;Project description here.&lt;/p&gt;
+    &lt;a href="#" class="btn btn-outline"&gt;View Project&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+      </div>
+      <p class="security-note">
+        <em>Note:</em> In purely static front-end apps, user-facing client-side forms cannot securely enforce administrative permissions. For secure visitor-facing updates, an authenticated server backend is required.
+      </p>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script src="./script.js"></script>
+</body>
+</html>
